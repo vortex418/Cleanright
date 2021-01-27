@@ -5,13 +5,88 @@
 		<link rel="icon" type="image/png"href="/cleanright/icon.png">
 		<link rel="stylesheet" href="/cleanright/styles.css">
 	</head>
+	<style>
+		html{
+			font-family: Arial, Sans-Serif;
+		}
+		div{
+			padding: 10px;
+			margin: 10px;
+			background-color: rgb(128,128,128);
+		}
+		button{
+			cursor:pointer; 
+			background: rgb(200,200,200);
+			box-shadow:0 0 6px hsla(200,100%,80%,1);
+			border:0;
+			padding: 5px 15px;
+			margin: 5px;
+		}
+		h1,h2,h3,h4,h5,h6,a,p,label,button{
+			text-shadow:0 0 1px hsla(0,0%,0%,1);
+		}
+		.align-left{
+			text-align: left;
+		}
+		.align-right{
+			text-align: right;
+		}
+		.align-center{
+			text-align: center;
+		}
+		.hidden{
+			display: none;
+		}
+	</style>
 	<body>
 		<div>
 			<h2 class="align-left">Cleanright Cleaning<button id="button-home" class="align-right">Home</button><button id="button-contact" class="align-right">Contact</button><button id="button-about" class="align-right">About</button></h2>
 		</div>
-		<div class="align-center">
+		<div id="gallery" class="align-center">
 			<img src="/cleanright/icon.png" width="100px" height="75px">
 		</div>
+		<div id="contact" class="hidden align-center">
+			<h3>Contact Information</h3>
+			<p>Information here goes here!</p>
+		</div>
+		<div id="about"class="hidden align-center">
+			<h3>About</h3>
+			<p>Information here goes here!</p>
+		</div>
 	</body>
-	<script src="/cleanright/script.js"></script>
+	<script>
+		document.getElementById("button-home").addEventListener("click", function(){
+			if(document.getElementById("gallery").classList.contains("hidden") == true){
+				document.getElementById("gallery").classList.remove("hidden");
+			} else {document.getElementById("gallery").classList.add("hidden");}
+			if(document.getElementById("contact").classList.contains("hidden") == false){
+				document.getElementById("contact").classList.add("hidden");
+			}
+			if(document.getElementById("about").classList.contains("hidden") == false){
+				document.getElementById("about").classList.add("hidden");
+			}
+		}, false);
+		document.getElementById("button-contact").addEventListener("click", function(){
+			if(document.getElementById("contact").classList.contains("hidden") == true){
+				document.getElementById("contact").classList.remove("hidden");
+			} else {document.getElementById("contact").classList.add("hidden");}
+			if(document.getElementById("about").classList.contains("hidden") == false){
+				document.getElementById("about").classList.add("hidden");
+			}
+			if(document.getElementById("gallery").classList.contains("hidden") == false){
+				document.getElementById("gallery").classList.add("hidden");
+			}
+		}, false);
+		document.getElementById("button-about").addEventListener("click", function(){
+			if(document.getElementById("about").classList.contains("hidden") == true){
+				document.getElementById("about").classList.remove("hidden");
+			} else {document.getElementById("about").classList.add("hidden");}
+			if(document.getElementById("contact").classList.contains("hidden") == false){
+				document.getElementById("contact").classList.add("hidden");
+			}
+			if(document.getElementById("gallery").classList.contains("hidden") == false){
+				document.getElementById("gallery").classList.add("hidden");
+			}
+		}, false);
+	</script>
 </html>
